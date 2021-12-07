@@ -1,17 +1,17 @@
 name: Generate Feed
 
-on: [push]
-  # schedule:
-  # - cron "0 17 * * *"
+on: [ push ]
+  #schedule:
+  #  - cron: "0 17 * * *"
 
 jobs:
   generate-feed-json:
     runs-on: ubuntu-latest
-    name: Generate RSS
+    name: Generate Feed
     steps:
-      - name: Generate Feed
+      - name: Checkout
         uses: actions/checkout@v2
-           - name: Fetch Feed
+      - name: Fetch Feed
         id: feed
         run: |
           npm install
