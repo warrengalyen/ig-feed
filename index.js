@@ -10,7 +10,7 @@ if (!accessToken) {
 
 async function getRecentMedia() {
   const result = await axios({
-    url: `https://graph.instagram.com/me/media?fields=media_url,permalink&access_token=${accessToken}`
+    url: `https://graph.instagram.com/bellhelmets/media?fields=media_url,permalink&access_token=${accessToken}`
   })
 
   if (result.status >= 400) {
