@@ -19,7 +19,6 @@ jobs:
           node-version: 16
       - name: npm-install
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.PERSONAL_ACCESS_TOKEN }}" >> .npmrc
           npm install
       - name: test
         run: npm test

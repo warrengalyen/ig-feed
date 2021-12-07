@@ -34,7 +34,7 @@ const getRecentMedia = async () => {
             data: {
                 data: recentMedia
             }
-        } = await axios.get('https://graph.instagram.com/bellhelmets/media', {
+        } = await axios.get('https://graph.instagram.com/me/media', {
             params: {
                 access_token: accessToken,
                 fields: 'media_url,permalink'

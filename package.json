@@ -4,7 +4,7 @@
     "description": "Recent Instagram posts",
     "main": "index.js",
     "dependencies": {
-        "@saulhardman/refresh-instagram-access-token": "^0.1.9",
+        "@saulhardman/github-actions": "file:package/refresh-instagram-access-token",
         "axios": ">=0.21.1"
     },
     "scripts": {

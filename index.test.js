@@ -56,7 +56,7 @@ describe('main', () => {
 
     beforeAll(() => {
       server = mockServer(
-        'https://graph.instagram.com/bellhelmets/media',
+        'https://graph.instagram.com/me/media',
         recentMediaJson
       );
 
