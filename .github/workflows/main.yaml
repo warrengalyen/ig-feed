@@ -1,26 +1,25 @@
-name: RSS
+name: Generate Feed
 
-on:
-  schedule:
-    - cron "0 17 * * *"
+on: [push]
+  # schedule:
+  # - cron "0 17 * * *"
 
 jobs:
-  generate_rss:
-  runs-on: ubuntu-latest
-  name: Generate RSS
-  steps:
-    - name: Generate RSS
-      uses: actions/checkout@v2
-    - name: RSS
-      id: rss
-      uses: katdecorah/instagram-rss-action@v0.2.0
-      with:
-        yourInstagram: bellhelmets
-        listOfInstagrams: bellhelmets
-    - name: Commit fiels
-      if: ${{ success() &&  steps.rss.output.RSS_STATUS == 'success' }}
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add -A && git commit -m "Updated instagram.json"
-        git push "https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/${GITHUB_REPOSITORY}.git" HEAD:${GITHUB_REF}
+  generate-feed-json:
+    runs-on: ubuntu-latest
+    name: Generate RSS
+    steps:
+      - name: Generate Feed
+        uses: actions/checkout@v2
+           - name: Fetch Feed
+        id: feed
+        run: |
+          npm install
+          ${{ secrets.IG_ACCESS_TOKEN }} npm start
+      - name: Commit instagram.json
+        if: ${{ success() }}
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A && git commit -m "Updated instagram.json"
+          git push "https://${GITHUB_ACTOR}:${{secrets.GITHUB_TOKEN}}@github.com/${GITHUB_REPOSITORY}.git" HEAD:${GITHUB_REF}
