@@ -10,7 +10,7 @@
     "author": "Warren Galyen",
     "license": "MIT",
     "dependencies": {
-        "@saulhardman/refresh-instagram-access-token": "0.1.9",
+        "@saulhardman/refresh-instagram-access-token": "^0.1.9",
         "axios": ">=0.24.0"
     },
     "devDependencies": {
